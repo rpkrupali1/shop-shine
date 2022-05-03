@@ -39,11 +39,17 @@ type Auth {
 }
 
 type Query {
-
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
 }
 
 type Mutation {
-    
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    login(email: String!, password: String!): Auth
 }
 `;
 
