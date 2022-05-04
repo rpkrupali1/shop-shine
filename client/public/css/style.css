@@ -244,6 +244,15 @@ header .intro-text {
   padding-bottom: 200px;
   text-align: center;
 }
+.photo {
+  height: 200px;
+  width: 200px;
+  box-shadow: 5px 5px;
+}
+.photo:hover  {
+  opacity: 0.3;
+}
+
 /* features Section */
 #features {
   background: #f6f6f6;
