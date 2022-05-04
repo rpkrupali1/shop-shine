@@ -24,13 +24,7 @@ const Home = (props) => {
         </div>
         <Categories/>
       </header>
-      
-
     )
   }
-  
    
-      
-    
-  
   export default Home;
