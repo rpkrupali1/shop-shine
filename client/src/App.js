@@ -5,7 +5,8 @@ import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
 import Shop from "./component/ShopList";
 import Home from "./pages/Home";
-import Categories from "./component/Categories";
+import Footer from "./component/Footer";
+
 import "./App.css";
 
 import {
@@ -36,6 +37,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>
