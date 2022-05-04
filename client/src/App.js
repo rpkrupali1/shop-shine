@@ -3,6 +3,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
+import Home from "./pages/Home";
+import Categories from "./component/Categories";
 import "./App.css";
 
 import {
@@ -28,10 +30,11 @@ function App() {
         <div> 
           <Nav />
           <Routes>
-            {/* <Route exact path="/" element={<Home />} /> */}
+            <Route exact path="/" element={<Home /> } />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
           </Routes>
+          
         </div>
       </Router>
     </ApolloProvider>
