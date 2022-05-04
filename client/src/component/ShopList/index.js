@@ -104,6 +104,7 @@ function ShopList() {
       <Grid container direction="row" spacing={3}>
         {products.map((product) => (
           <ShopItem
+            id={product.id}
             title={product.title}
             description={product.description}
             price={product.price}
