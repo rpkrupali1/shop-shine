@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
+import Shop from "./component/ShopList";
 import "./App.css";
 
 import {
@@ -25,10 +26,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div> 
+        <div>
           <Nav />
           <Routes>
-            {/* <Route exact path="/" element={<Home />} /> */}
+            <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
           </Routes>
