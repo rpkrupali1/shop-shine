@@ -5,7 +5,7 @@ import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
 import Shop from "./component/ShopList";
 import Home from "./pages/Home";
-import Categories from "./component/Categories";
+import Contact from "./pages/Contact";
 import "./App.css";
 
 import {
@@ -35,6 +35,7 @@ function App() {
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/Contact" element={<Contact />} />
           </Routes>
         </div>
       </Router>
