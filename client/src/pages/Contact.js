@@ -145,11 +145,35 @@ function Contact() {
               </p>
             </div>
           </div>
-          
+          <div className='col-md-12'>
+            <div className='row'>
+              <div className='social'>
+                <ul>
+                  <li>
+                  <a href={'https://www.facebook.com/'}>
+                    <i className='fa fa-facebook'></i>
+                  </a>
+                  </li>
+                  <li>
+                  <a href={ 'https://twitter.com/'}>
+                    <i className='fa fa-twitter'></i>
+                  </a>
+                  </li>
+                  <li>
+                  <a href={'https://www.youtube.com/'}>
+                    <i className='fa fa-youtube'></i>
+                  </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
     </div>
   )
 }
+
 export default Contact;
+
