@@ -57,6 +57,12 @@ function Nav(props) {
                                 Logout
                             </a>
                         </li>
+                        <li>
+                          <Link to="/cart">
+                              Cart
+                          </Link>
+                        </li>
+                        
                       </ul>
                     </div>
                   </div>
@@ -113,6 +119,11 @@ function Nav(props) {
                         <li>
                           <Link to="/login">
                               Login
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/cart">
+                              Cart
                           </Link>
                         </li>
                       </ul>
