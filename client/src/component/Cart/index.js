@@ -1,3 +1,4 @@
+import { Grid } from "@material-ui/core";
 import React from "react";
 import CartItem from "../CartItem";
 
@@ -102,10 +103,17 @@ function Cart() {
     <div>
       <div className="cart">
         <h2>Shopping Cart</h2>
-        <div>
+        <Grid container direction="row" spacing={2}>
           {products.map((item) => (
             <CartItem item={item} />
           ))}
+        </Grid>
+        <Grid container direction="row" spacing={2} className="subtotal">
+          <Grid item>Subtotal:</Grid>
+          <Grid item>$100</Grid>
+        </Grid>
+        <div>
+          <button>Checkout</button>
         </div>
       </div>
     </div>
