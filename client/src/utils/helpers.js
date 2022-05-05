@@ -13,7 +13,7 @@ export function validateEmail(email) {
   
   export function idbPromise(storeName, method, object) {
     return new Promise((resolve, reject) => {
-      const request = window.indexedDB.open('shop-shop', 1);
+      const request = window.indexedDB.open('shop-shine', 1);
       let db, tx, store;
       request.onupgradeneeded = function(e) {
         const db = request.result;
