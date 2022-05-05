@@ -440,9 +440,10 @@ label {
   padding: 30px 0 10px;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   color: rgba(255, 255, 255, 0.75);
+  
 }
 #access .intro {
-  display: table;
+  display: absolute;
   width: 100%;
   padding: 10px;
   background: url(../img/login-brand.jpg) center center no-repeat;
@@ -452,12 +453,32 @@ label {
   background-size: cover;
   -o-background-size: cover;
 }
+#access .signin {
+  display: table;
+  width: 130%; 
+  height: 100%;
+  padding: 10px;
+  background: url(../img/signup.jpg) center center no-repeat;
+  background-color: #e5e5e5;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: 100%;
+  -o-background-size: cover;
+}
 #access .intro .overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+#access .signin .overlay {
+  background: rgba(0, 0, 0, 0.2);
+
 }
 .left {
   float: left;
   margin-left: -30px;
+}
+.left2 {
+  float: left;
+  margin-left: -250px;
 }
 #access .section-title {
   margin-bottom: 40px;
@@ -576,8 +597,16 @@ label {
   color: black;
 }
 
-
-
+@media (max-width: 1024px) {
+.left2 {
+  float: left;
+  margin-left: -100px;
+}
+#access .left {
+  float: left;
+  margin-left: 30px;
+}
+}
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;
@@ -586,6 +615,11 @@ label {
     float: left;
     margin-left: 30px;
   }
-  
 }
+@media (max-width: 425px) {
+  .left2 {
+    float: left;
+    margin-left: 30px;
+  }
+  }
 

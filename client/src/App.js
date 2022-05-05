@@ -7,7 +7,6 @@ import Shop from "./component/ShopList";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Footer from "./component/Footer";
-import Categories from "./component/Categories";
 import Detail from "./pages/Detail";
 import Cart from "./component/Cart";
 import Success from "./pages/Success";
