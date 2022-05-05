@@ -13,6 +13,7 @@ type Product {
     category: Category
     description: String
     image: String
+    quantity: Int
 }
 
 type Order {
