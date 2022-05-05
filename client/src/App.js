@@ -10,6 +10,7 @@ import Footer from "./component/Footer";
 import Categories from "./component/Categories";
 import Detail from "./pages/Detail";
 import "./App.css";
+import Cart from "./component/Cart";
 
 import {
   ApolloClient,
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/products/1" element={<Detail />} />
+            <Route exact path="/cart" element={<Cart />} />
           </Routes>
           <Footer/>
         </div>
