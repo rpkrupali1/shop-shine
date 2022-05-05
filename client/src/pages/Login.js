@@ -5,9 +5,7 @@ function Login() {
     <div>
       <div id='access'>
         <div className="intro">
-          
-        
-            <div className='container'>
+          <div className='container'>
             <div className='col-md-4 left'>
               <div className='row'>
                 <div className='section-title'>
