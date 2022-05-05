@@ -47,11 +47,7 @@ function Nav(props) {
                               Contact
                           </Link>
                         </li>
-                        <li>
-                          <Link to="/orderHistory">
-                              Order History
-                          </Link>
-                        </li>
+                        
                         <li>
                             <a href="/" onClick={() => Auth.logout()}>
                                 Logout
