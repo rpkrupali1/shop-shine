@@ -1,3 +1,7 @@
+:root  {
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
+}
 body,
 html {
   font-family: "Open Sans", sans-serif;
@@ -70,6 +74,19 @@ hr {
   margin-bottom: 20px;
   border: 0;
 }
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.space-between {
+  justify-content: space-between;
+}
+.my-2 {
+  margin-top: var(--spacing-two);
+  margin-bottom: var(--spacing-two);
+}
+
 /* Navigation */
 #menu {
   padding: 15px;
@@ -418,9 +435,157 @@ label {
 #footer a:hover {
   border-bottom: 2px solid #608dfd;
 }
+/* Login/Signup Section */
+#access {
+  padding: 30px 0 10px;
+  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  color: rgba(255, 255, 255, 0.75);
+}
+#access .intro {
+  display: table;
+  width: 100%;
+  padding: 10px;
+  background: url(../img/login-brand.jpg) center center no-repeat;
+  background-color: #e5e5e5;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+#access .intro .overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+.left {
+  float: left;
+  margin-left: -30px;
+}
+#access .section-title {
+  margin-bottom: 40px;
+}
+#access .section-title p {
+  font-size: 16px;
+}
+#access h2 {
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+#access .section-title h2::after {
+  position: absolute;
+  content: "";
+  background: rgba(255, 255, 255, 0.3);
+  height: 4px;
+  width: 60px;
+  bottom: 0;
+  left: 30px;
+}
+
+
+#access h3 {
+  color: #fff;
+  margin-top: 80px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  font-weight: 400;
+}
+#access form {
+  padding-top: 20px;
+}
+#access .text-danger {
+  color: #cc0033;
+  text-align: left;
+}
+#access .btn-custom {
+  margin: 30px 0;
+  background: transparent;
+  border: 2px solid #fff;
+}
+#access .btn-custom:hover {
+  color: #1f386e;
+  background: #fff;
+}
+label {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  float: left;
+}
+#access .form-control {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 20px;
+  line-height: 1.42857143;
+  color: #444;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+#access .form-control:focus {
+  border-color: #999;
+  outline: 0;
+  -webkit-box-shadow: transparent;
+  box-shadow: transparent;
+}
+
+#access .access-item {
+  margin: 20px 0;
+}
+
+
+#access .access-item span {
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+  display: block;
+}
+#access .access-item i.fa {
+  margin-right: 10px;
+}
+#access .social {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  /* padding-top: 2px;
+  margin-top: 2px; */
+  text-align: center;
+}
+#access .social ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+#access .social i.fa {
+  font-size: 22px;
+  width: 48px;
+  height: 48px;
+  padding: 12px 0;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+#access .social i.fa:hover {
+  color: #608dfd;
+  background: #fff;
+}
+#access a{
+  color: black;
+}
+
+
 
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;
   }
+  #access .left {
+    float: left;
+    margin-left: 30px;
+  }
+  
 }
+
