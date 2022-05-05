@@ -1,6 +1,11 @@
 import { Grid } from "@material-ui/core";
-import React from "react";
+import React, {useEffect} from "react";
 import CartItem from "../CartItem";
+import { QUERY_CHEKCOUT } from "../../utils/queries";
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const products = [
   {
@@ -99,6 +104,23 @@ const products = [
 ];
 
 function Cart() {
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHEKCOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
+  function submitCheckout() {
+    const productIds = [1,2,3];
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
   return (
     <div>
       <div className="cart">
@@ -113,7 +135,7 @@ function Cart() {
           <Grid item>$100</Grid>
         </Grid>
         <div>
-          <button>Checkout</button>
+          <button onClick={submitCheckout}>Checkout</button>
         </div>
       </div>
     </div>
