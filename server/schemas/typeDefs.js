@@ -35,7 +35,7 @@ type Checkout {
 }
 
 type Auth {
-    toke: ID
+    token: ID
     user: User
 }
 
