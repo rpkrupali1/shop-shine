@@ -126,6 +126,11 @@ function Nav(props) {
                               Cart
                           </Link>
                         </li>
+                        <li>
+                          <Link to="/orderHistory">
+                              Order History
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
