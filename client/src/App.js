@@ -9,8 +9,9 @@ import Contact from "./pages/Contact";
 import Footer from "./component/Footer";
 import Categories from "./component/Categories";
 import Detail from "./pages/Detail";
-import "./App.css";
 import Cart from "./component/Cart";
+import Success from "./pages/Success";
+import "./App.css";
 
 import {
   ApolloClient,
@@ -35,15 +36,16 @@ function App() {
         <div>
           <Nav />
           <Routes>
-            <Route exact path="/" element={<Home /> } />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/Contact" element={<Contact />} />
+            <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/products/1" element={<Detail />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/success" element={<Success />} />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
