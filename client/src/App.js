@@ -11,6 +11,7 @@ import Categories from "./component/Categories";
 import Detail from "./pages/Detail";
 import Cart from "./component/Cart";
 import Success from "./pages/Success";
+import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 import {
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/products/1" element={<Detail />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/success" element={<Success />} />
+            <Route exact path="/nomatch" element={<NoMatch />} />
           </Routes>
           <Footer />
         </div>
