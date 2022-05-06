@@ -68,3 +68,30 @@ export const QUERY_CHEKCOUT = gql`
     }
   }
 `;
+
+export const USER = gql `
+query User {
+  user {
+    _id
+    firstName
+    lastName
+    email
+    orders {
+      _id
+    purchaseDate
+    products {
+      _id
+      title
+      price
+      category {
+        _id
+        name
+      }
+      description
+      image
+      quantity
+    }
+  }
+}
+}
+`;

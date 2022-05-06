@@ -43,3 +43,30 @@ mutation Contact($name: String!, $email: String!, $message: String!) {
   }
 `;
 
+export const ADD_ORDER = gql`
+mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      products {
+        _id
+        title
+      }
+    }
+  }
+`;
+
+export const UPDATE_PRODUCT = gql`
+mutation updateProduct($_id: ID!, $quantity: Int!) {
+    updateProduct(_id: $_id, quantity: $quantity) {
+      _id
+      title
+      price
+      category {
+        _id
+        name
+      }
+      description
+      image
+      quantity
+    }
+  }
+  `;
