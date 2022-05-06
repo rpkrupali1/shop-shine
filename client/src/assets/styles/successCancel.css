@@ -1,3 +1,7 @@
+:root {
+  --error: #f02d34;
+}
+
 .success-wrapper,
 .cancel-wrapper {
   background-color: white;
@@ -46,7 +50,11 @@
 }
 .success .description .email {
   margin-left: 5px;
-  color: #f02d34;
+  color: var(--error);
+}
+
+.error-text {
+  color: var(--error);
 }
 
 @media screen and (max-width: 800px) {
