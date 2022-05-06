@@ -1,6 +1,6 @@
-:root  {
-  --spacing-one: calc(1rem * 0.5);
-  --spacing-two: calc(1rem);
+:root {
+  --spacing-one: calc(2rem * 0.5);
+  --spacing-two: calc(2rem);
 }
 body,
 html {
@@ -266,7 +266,7 @@ header .intro-text {
   width: 200px;
   box-shadow: 5px 5px;
 }
-.photo:hover  {
+.photo:hover {
   opacity: 0.3;
 }
 
@@ -286,7 +286,6 @@ header .intro-text {
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
-
 
 /* Contact Section */
 #contact {
@@ -440,7 +439,6 @@ label {
   padding: 30px 0 10px;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   color: rgba(255, 255, 255, 0.75);
-  
 }
 #access .intro {
   display: absolute;
@@ -455,7 +453,7 @@ label {
 }
 #access .signin {
   display: table;
-  width: 130%; 
+  width: 130%;
   height: 100%;
   padding: 10px;
   background: url(../img/signup.jpg) center center no-repeat;
@@ -470,7 +468,6 @@ label {
 }
 #access .signin .overlay {
   background: rgba(0, 0, 0, 0.2);
-
 }
 .left {
   float: left;
@@ -501,7 +498,6 @@ label {
   bottom: 0;
   left: 30px;
 }
-
 
 #access h3 {
   color: #fff;
@@ -560,7 +556,6 @@ label {
   margin: 20px 0;
 }
 
-
 #access .access-item span {
   color: rgba(255, 255, 255, 1);
   margin-bottom: 10px;
@@ -593,20 +588,49 @@ label {
   color: #608dfd;
   background: #fff;
 }
-#access a{
+#access a {
   color: black;
 }
 
+/* Order History Style */
+.container {
+  font-size: 20px;
+  width: 85%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-1 {
+  margin-top: var(--spacing-one);
+  margin-bottom: var(--spacing-one);
+}
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 25%;
+  text-align: center;
+}
+.px-1 {
+  padding-right: var(--spacing-one);
+  padding-left: var(--spacing-one);
+}
+.py-1 {
+  padding-top: var(--spacing-one);
+  padding-bottom: var(--spacing-one);
+}
 @media (max-width: 1024px) {
-.left2 {
-  float: left;
-  margin-left: -100px;
+  .left2 {
+    float: left;
+    margin-left: -100px;
+  }
+  #access .left {
+    float: left;
+    margin-left: 30px;
+  }
 }
-#access .left {
-  float: left;
-  margin-left: 30px;
-}
-}
+
 @media (max-width: 768px) {
   #about img {
     margin: 50px 0;
@@ -621,5 +645,4 @@ label {
     float: left;
     margin-left: 30px;
   }
-  }
-
+}
