@@ -30,6 +30,13 @@ type User {
     orders: [Order]
 }
 
+type Contact {
+    _id: ID
+    name: String
+    email: String
+    message: String
+}
+
 type Checkout {
     session: ID
 }
@@ -54,6 +61,7 @@ type Mutation {
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     updateProduct(_id: ID!, quantity: Int!): Product
+    contact(name: String!, email: String!, message: String!): Contact
 }
 `;
 
