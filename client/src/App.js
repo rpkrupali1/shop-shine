@@ -12,6 +12,7 @@ import Cart from "./component/Cart";
 import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
 import OrderHistory from "./pages/OrderHistory";
+import ForgotPassword from "./component/ForgotPassword";
 
 import "./App.css";
 
@@ -61,6 +62,11 @@ function App() {
               <Route exact path="/success" element={<Success />} />
               <Route exact path="/nomatch" element={<NoMatch />} />
               <Route exact path="/orderHistory" element={<OrderHistory />} />
+              <Route
+                exact
+                path="/forgotpassword"
+                element={<ForgotPassword />}
+              />
             </Routes>
             <Footer />
           </StoreProvider>
