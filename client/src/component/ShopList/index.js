@@ -1,6 +1,7 @@
 import React from "react";
 import ShopItem from "../ShopItem";
 import { Grid } from "@material-ui/core";
+import "../../assets/styles/product.css";
 
 const products = [
   {
@@ -100,8 +101,14 @@ const products = [
 
 function ShopList() {
   return (
-    <div>
-      <Grid container direction="row" spacing={3} className="products-container">
+    <div className="shop-list">
+      <Grid
+        container
+        direction="row"
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        className="products-container"
+      >
         {products.map((product) => (
           <ShopItem
             id={product.id}
