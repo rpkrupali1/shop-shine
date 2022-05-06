@@ -136,8 +136,12 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    contact: async (parent, args) => {
+      const contact = await Contact.create(args);
+      return contact;
     }
-  }
+  },
 };
 
 module.exports = resolvers;
