@@ -13,8 +13,8 @@ function Success() {
         <p className="email-msg">Check your email inbox for the receipt.</p>
         <p className="description">
           If you have any questions, please email
-          <a className="email" href="mailto:order@example.com">
-            order@example.com
+          <a className="email" href="mailto:order@shopshine.com">
+            order@shopshine.com
           </a>
         </p>
         <a href="/">
