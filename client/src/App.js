@@ -11,7 +11,7 @@ import Detail from "./pages/Detail";
 import Cart from "./component/Cart";
 import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
-import OrderHistory from './pages/OrderHistory';
+import OrderHistory from "./pages/OrderHistory";
 
 import "./App.css";
 
@@ -21,9 +21,21 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
 });
 
 const client = new ApolloClient({
@@ -36,21 +48,22 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/shop" element={<Shop />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/products/1" element={<Detail />} />
-            <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/success" element={<Success />} />
-            <Route exact path="/nomatch" element={<NoMatch />} />
-            <Route exact path="/orderHistory" element={<OrderHistory />} />
-            
-          </Routes>
-          <Footer />
+          <StoreProvider>
+            <Nav />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/shop" element={<Shop />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/contact" element={<Contact />} />
+              <Route exact path="/products/1" element={<Detail />} />
+              <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/success" element={<Success />} />
+              <Route exact path="/nomatch" element={<NoMatch />} />
+              <Route exact path="/orderHistory" element={<OrderHistory />} />
+            </Routes>
+            <Footer />
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
