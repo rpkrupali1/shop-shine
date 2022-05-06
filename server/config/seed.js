@@ -12,5 +12,44 @@ db.once("open", async () => {
   ]);
 
   console.log("categories seeded");
+
+  const products = await Product.insertMany([
+    {
+      title: 'Gold ring',
+      description:
+        'Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her.',
+      image: 'white gold.jpg',
+      category: categories[1]._id,
+      price: 99,
+      quantity: 2
+    },
+    {
+      title: 'Mens Cotton Jacket',
+      description:
+        'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions',
+      image: 'cotton jacket.jpg',
+      category: categories[2]._id,
+      price: 55,
+      quantity: 1
+    },
+  ]);
+  console.log("products seeded");
+
+  await User.create({
+    firstName: 'Pamela',
+    lastName: 'Washington',
+    email: 'pamela@testmail.com',
+    password: 'password123!',
+  });
+
+  await User.create({
+    firstName: 'Elijah',
+    lastName: 'Holt',
+    email: 'eholt@testmail.com',
+    password: 'password123!'
+  });
+
+  console.log('users seeded');
+
   process.exit();
 });

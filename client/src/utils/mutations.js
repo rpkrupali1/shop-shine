@@ -29,3 +29,14 @@ mutation UpdateUser {
     }
   }
 `;
+
+export const ADD_CONTACT = gql`
+mutation Contact($name: String!, $email: String!, $message: String!) {
+    contact(name: $name, email: $email, message: $message) {
+      name
+      email
+      message
+    }
+  }
+`;
+
