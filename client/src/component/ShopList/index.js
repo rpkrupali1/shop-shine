@@ -100,7 +100,7 @@ const products = [
 
 function ShopList() {
   return (
-    <div>
+    <div className="cardshop">
       <Grid container direction="row" spacing={3}>
         {products.map((product) => (
           <ShopItem

@@ -5,6 +5,7 @@ import { QUERY_CHEKCOUT } from "../../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
 
+
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const products = [
@@ -122,9 +123,11 @@ function Cart() {
   }
 
   return (
-    <div>
-      <div className="cart">
+    <div >
+      <div id="cart">
+      <div   className="cart section-title ">
         <h2>Shopping Cart</h2>
+        </div>
         <Grid container direction="row" spacing={2}>
           {products.map((item) => (
             <CartItem item={item} />
@@ -135,7 +138,7 @@ function Cart() {
           <Grid item>$100</Grid>
         </Grid>
         <div>
-          <button onClick={submitCheckout}>Checkout</button>
+          <button className="btn btn-custom btn-lg" onClick={submitCheckout}>Checkout</button>
         </div>
       </div>
     </div>
