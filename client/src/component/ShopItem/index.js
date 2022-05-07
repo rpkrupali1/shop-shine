@@ -15,7 +15,7 @@ function ShopItem(item) {
       </Link>
       <p>{description}</p>
       <p>${price}</p>
-      <button>Add to Cart</button>
+      <button className="btn btn-custom btn-lg">Add to Cart</button>
     </Grid>
   );
 }
