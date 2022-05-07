@@ -48,7 +48,11 @@ function Nav(props) {
                   </a>
                 </li>
                 <li>
-                  <Link to="/cart">Cart</Link>
+                  <Link to="/cart">
+                      <span role="img" aria-label="trash" className="cart-closed">
+                        🛒
+                      </span>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -98,7 +102,11 @@ function Nav(props) {
                   <Link to="/login">Login</Link>
                 </li>
                 <li>
-                  <Link to="/cart">Cart</Link>
+                  <Link to="/cart">
+                    <span role="img" aria-label="trash" className="cart-closed">
+                      🛒
+                    </span>
+                  </Link>
                 </li>
               </ul>
             </div>
