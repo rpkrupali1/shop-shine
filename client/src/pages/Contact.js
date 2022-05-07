@@ -1,59 +1,54 @@
 import React, { useState } from 'react'
-import { validateEmail } from '../utils/helpers';
+// import { validateEmail } from '../utils/helpers';
+import { ADD_CONTACT } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 
-// const initialState = {
-//     name: '',
-//     email: '',
-//     message: '',
-//   }
 
 function Contact() {
-    const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-    const { name, email, message } = formState;
-    const [errorMessage, setErrorMessage] = useState('');
-     
-    const handleReset = () => {
-        Array.from(document.querySelectorAll("input")).forEach(
-          input => (input.value = "")
-        );
-        Array.from(document.querySelectorAll("textarea")).forEach(
-            textarea => (textarea.value = "")
-          );
-        this.setState({
-          itemvalues: [{}]
-        });
-      };
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [errorMessage, setErrorMessage] = useState('');
+  const [addContact] = useMutation(ADD_CONTACT);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(formState);
-        handleReset();
-    }
-    
+  const handleReset = () => {
+    Array.from(document.querySelectorAll("input")).forEach(
+      input => (input.value = "")
+    );
+    Array.from(document.querySelectorAll("textarea")).forEach(
+      textarea => (textarea.value = "")
+    );
+    // this.setState({
+    //   itemvalues: [{}]
+    // });
+  };
 
- function handleChange(e) {
-        if (e.target.name === 'email') {
-            const isValid = validateEmail(e.target.value);
-            console.log(isValid);
-            // isValid conditional statement
-            if (!isValid) {
-              setErrorMessage('Your email is invalid.');
-            } else {
-              setErrorMessage('');
-            }
-          } else {
-            if (!e.target.value.length) {
-              setErrorMessage(`${e.target.name} is required.`);
-            } else {
-              setErrorMessage('');
-            }
-          }
-          if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
-          }
+  function handleSubmit(e) {
+    e.preventDefault();
+    // console.log(formState);
+    const contact = addContact({
+      variables: {
+        name: formState.name,
+        email: formState.email,
+        message: formState.message
+      },
+    });
+    handleReset();
+    console.log(contact);
+  }
+
+
+  function handleChange(e) 
+    // validation of email address is getting cheecked in the backend
+      { if (!e.target.value.length) {
+        setErrorMessage(`${e.target.name} is required.`);
+      } else {
+        setErrorMessage('');
       }
+    if (!errorMessage) {
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+    }
+  }
 
-   
+
   return (
     <div>
       <div id='contact'>
@@ -77,7 +72,6 @@ function Contact() {
                         name='name'
                         className='form-control'
                         placeholder='Name'
-                        required
                         onChange={handleChange}
                       />
                       <p className='help-block text-danger'></p>
@@ -91,7 +85,6 @@ function Contact() {
                         name='email'
                         className='form-control'
                         placeholder='Email'
-                        required
                         onChange={handleChange}
                       />
                       <p className='help-block text-danger'></p>
@@ -104,9 +97,8 @@ function Contact() {
                     id='message'
                     className='form-control'
                     rows='4'
-                   
+
                     placeholder='Message'
-                    required
                     onChange={handleChange}
                   ></textarea>
                   <p className='help-block text-danger'></p>
@@ -150,19 +142,19 @@ function Contact() {
               <div className='social'>
                 <ul>
                   <li>
-                  <a href={'https://www.facebook.com/'}>
-                    <i className='fa fa-facebook'></i>
-                  </a>
+                    <a href={'https://www.facebook.com/'}>
+                      <i className='fa fa-facebook'></i>
+                    </a>
                   </li>
                   <li>
-                  <a href={ 'https://twitter.com/'}>
-                    <i className='fa fa-twitter'></i>
-                  </a>
+                    <a href={'https://twitter.com/'}>
+                      <i className='fa fa-twitter'></i>
+                    </a>
                   </li>
                   <li>
-                  <a href={'https://www.youtube.com/'}>
-                    <i className='fa fa-youtube'></i>
-                  </a>
+                    <a href={'https://www.youtube.com/'}>
+                      <i className='fa fa-youtube'></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -170,7 +162,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      
+
     </div>
   )
 }
