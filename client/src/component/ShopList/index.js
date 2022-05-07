@@ -101,7 +101,11 @@ const products = [
 
 function ShopList() {
   return (
-    <div className="shop-list">
+    <div className="shop-list cardshop">
+      <div className="products-heading">
+        <h2>Category Name here</h2>
+        <p>There are many variations</p>
+      </div>
       <Grid
         container
         direction="row"
@@ -118,7 +122,7 @@ function ShopList() {
             image={product.image}
           />
         ))}
-      </Grid>
+        </Grid>
     </div>
   );
 }
