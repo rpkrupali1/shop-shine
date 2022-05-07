@@ -9,12 +9,17 @@
       "type": "image/x-icon"
     },
     {
-      "src": "hero.jpg",
+      "src": "./img/hero.jpg",
       "type": "img/jpg",
-      "sizes": "192x192"
+      "sizes": "128x128"
     },
     {
-      "src": "hero.jpg",
+      "src": "./img/hero.jpg",
+      "type": "img/jpg",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./img/hero.jpg",
       "type": "img/jpg",
       "sizes": "512x512"
     }
