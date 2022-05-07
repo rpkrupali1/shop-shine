@@ -110,8 +110,9 @@ function ShopList() {
         container
         direction="row"
         spacing={{ xs: 1, md: 2 }}
-        columns={{ xs: 5, sm: 8, md: 12 }}
+        rows={{ xs: 5, sm: 8, md: 12 }}
         className="products-container"
+        wrap="wrap"
       >
         {products.map((product) => (
           <ShopItem
@@ -122,7 +123,7 @@ function ShopList() {
             image={product.image}
           />
         ))}
-        </Grid>
+      </Grid>
     </div>
   );
 }

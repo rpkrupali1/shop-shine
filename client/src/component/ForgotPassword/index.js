@@ -9,7 +9,7 @@ function ForgotPassword() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    if (email) {      
+    if (email) {
       setBtnClick(true);
     } else setErrorMessage("Please enter valid email id");
   };
@@ -53,12 +53,11 @@ function ForgotPassword() {
           )}
           <button className="resetbtn">RESET MY PASSWORD</button>
         </form>
-
         {btnClick && (
           <div>
             <p>
               Please check your email, we have sent you an email for password
-              reset @{email}
+              reset {email}
             </p>
           </div>
         )}
