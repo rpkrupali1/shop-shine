@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import {
   AiOutlineMinus,
   AiOutlinePlus,
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+import "../assets/styles/product.css"
 
 const product = {
   id: 5,
@@ -39,6 +33,7 @@ function Detail() {
       spacing={0}
       justifyContent="center"
       alignItems="center"
+      className="product-detail-container"
     >
       <Grid item xs={6} className="image-container">
         <img
@@ -56,12 +51,12 @@ function Detail() {
             <AiFillStar />
             <AiFillStar />
             <AiOutlineStar />
-            <p>(20)</p>
           </div>
+          <p>(20)</p>
         </div>
         <h4>Details: </h4>
         <p>{product.description}</p>
-        <p>${product.price}</p>
+        <p className="price">${product.price}</p>
         <div className="quantity">
           <h3>Quantity:</h3>
           <p className="quantity-desc">

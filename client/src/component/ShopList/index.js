@@ -1,6 +1,7 @@
 import React from "react";
 import ShopItem from "../ShopItem";
 import { Grid } from "@material-ui/core";
+import "../../assets/styles/product.css";
 
 const products = [
   {
@@ -100,8 +101,18 @@ const products = [
 
 function ShopList() {
   return (
-    <div className="cardshop">
-      <Grid container direction="row" spacing={3}>
+    <div className="shop-list cardshop">
+      <div className="products-heading">
+        <h2>Category Name here</h2>
+        <p>There are many variations</p>
+      </div>
+      <Grid
+        container
+        direction="row"
+        spacing={{ xs: 1, md: 2 }}
+        columns={{ xs: 5, sm: 8, md: 12 }}
+        className="products-container"
+      >
         {products.map((product) => (
           <ShopItem
             id={product.id}
@@ -111,7 +122,7 @@ function ShopList() {
             image={product.image}
           />
         ))}
-      </Grid>
+        </Grid>
     </div>
   );
 }

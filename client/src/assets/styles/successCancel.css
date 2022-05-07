@@ -1,5 +1,7 @@
 :root {
   --error: #f02d34;
+  --siteColor: #5ca9fb;
+  --siteTextColor: #fff;
 }
 
 .success-wrapper,
@@ -75,10 +77,9 @@
   margin-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
-  background-color: #5ca9fb;
+  background-color: var(--siteColor);
   color: #fff;
   width: 100%;
-
 }
 .error-text {
   color: var(--error);
