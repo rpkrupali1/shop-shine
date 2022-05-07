@@ -4,19 +4,22 @@ import "../../assets/styles/successCancel.css";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
+  const [btnClick, setBtnClick] = useState(false);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    return (
-      <div>
-        <p>Please check your email at {email}</p>
-      </div>
-    );
+    if (email) {      
+      setBtnClick(true);
+    } else setErrorMessage("Please enter valid email id");
   };
 
   const handleChange = (event) => {
     const emailVal = event.target.value;
-    setEmail(emailVal);
+    if (emailVal) {
+      setEmail(emailVal);
+      setErrorMessage("");
+    }
   };
 
   return (
@@ -24,6 +27,7 @@ function ForgotPassword() {
       <div className="success">
         <p className="danger-icon">
           <ImConfused />
+          {/* {btnClicked === true && <h2>Forgot Password</h2>} */}
         </p>
         <h2>FORGOT PASSWORD</h2>
         <p className="email-msg">
@@ -42,8 +46,22 @@ function ForgotPassword() {
               onChange={handleChange}
             />
           </div>
+          {errorMessage && (
+            <div>
+              <p className="error-text">{errorMessage}</p>
+            </div>
+          )}
           <button className="resetbtn">RESET MY PASSWORD</button>
         </form>
+
+        {btnClick && (
+          <div>
+            <p>
+              Please check your email, we have sent you an email for password
+              reset @{email}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
