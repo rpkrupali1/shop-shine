@@ -105,8 +105,8 @@ function ShopList() {
       <Grid
         container
         direction="row"
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        spacing={{ xs: 1, md: 2 }}
+        columns={{ xs: 5, sm: 8, md: 12 }}
         className="products-container"
       >
         {products.map((product) => (
