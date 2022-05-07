@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-import { validateEmail } from '../utils/helpers';
+// import { validateEmail } from '../utils/helpers';
 import { ADD_CONTACT } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 
-// const initialState = {
-//     name: '',
-//     email: '',
-//     message: '',
-//   }
 
 function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -19,16 +14,16 @@ function Contact() {
       input => (input.value = "")
     );
     Array.from(document.querySelectorAll("textarea")).forEach(
-        textarea => (textarea.value = "")
-      );
-    this.setState({
-      itemvalues: [{}]
-    });
+      textarea => (textarea.value = "")
+    );
+    // this.setState({
+    //   itemvalues: [{}]
+    // });
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     const contact = addContact({
       variables: {
         name: formState.name,
@@ -41,23 +36,13 @@ function Contact() {
   }
 
 
-  function handleChange(e) {
-    if (e.target.name === 'email') {
-      const isValid = validateEmail(e.target.value);
-      console.log(isValid);
-      // isValid conditional statement
-      if (!isValid) {
-        setErrorMessage('Your email is invalid.');
-      } else {
-        setErrorMessage('');
-      }
-    } else {
-      if (!e.target.value.length) {
+  function handleChange(e) 
+    // validation of email address is getting cheecked in the backend
+      { if (!e.target.value.length) {
         setErrorMessage(`${e.target.name} is required.`);
       } else {
         setErrorMessage('');
       }
-    }
     if (!errorMessage) {
       setFormState({ ...formState, [e.target.name]: e.target.value });
     }
@@ -87,7 +72,6 @@ function Contact() {
                         name='name'
                         className='form-control'
                         placeholder='Name'
-                        required
                         onChange={handleChange}
                       />
                       <p className='help-block text-danger'></p>
@@ -101,7 +85,6 @@ function Contact() {
                         name='email'
                         className='form-control'
                         placeholder='Email'
-                        required
                         onChange={handleChange}
                       />
                       <p className='help-block text-danger'></p>
@@ -116,7 +99,6 @@ function Contact() {
                     rows='4'
 
                     placeholder='Message'
-                    required
                     onChange={handleChange}
                   ></textarea>
                   <p className='help-block text-danger'></p>
