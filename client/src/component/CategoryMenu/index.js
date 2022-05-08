@@ -6,7 +6,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import { idbPromise } from "../../utils/helpers";
+import { removeSpecialCharacters,capitalizeFirstLetter, idbPromise } from "../../utils/helpers";
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -39,6 +39,12 @@ function CategoryMenu() {
     });
   };
 
+  const imagePath = (imageName) => {
+    const image = removeSpecialCharacters(imageName);
+    console.log(image);
+    return require(`../../assets/images/${image}.jpg`)
+  }
+
   return (
     <div id="features" className="text-center">
       <div className="container">
@@ -48,15 +54,11 @@ function CategoryMenu() {
 
         <div className="row">
           {categories.map((item) => (
-            <div key={item.title} className="col-xs-6 col-md-3">
+            <div key={item.name} className="col-xs-6 col-md-3">
               <a href={item.pageLink}>
-                <img
-                  className="photo"
-                  src={item.image}
-                  alt={item.title}
-                />
+                <img className="photo" src={imagePath(item.name)} alt={item.className} />
               </a>
-              <h4>{item.title}</h4>
+              <h4>{capitalizeFirstLetter(item.name)}</h4>
             </div>
           ))}
         </div>

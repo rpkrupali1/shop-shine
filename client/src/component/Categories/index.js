@@ -1,63 +1,53 @@
-import React from "react"
+import React from "react";
 
 const categroies = [
   {
-    image: require('../../assets/images/Jewelery.jpg'),
+    image: require("../../assets/images/jewelery.jpg"),
     pageLink: "/shop",
-    title: "Jewelery"
-   
+    title: "Jewelery",
   },
   {
-    image: require('../../assets/images/Electronics.png'),
+    image: require("../../assets/images/electronics.jpg"),
     pageLink: "/shop",
-    title: "Electronics"
-    
+    title: "Electronics",
   },
   {
-    image: require('../../assets/images/mens.jpg'),
+    image: require("../../assets/images/mensclothing.jpg"),
     pageLink: "/shop",
-    title: "Men's Clothing"
-   
+    title: "Men's Clothing",
   },
   {
-
-    image: require('../../assets/images/womens.jpg'),
+    image: require("../../assets/images/womensclothing.jpg"),
     pageLink: "/shop",
-    title: "Women's Clothing"
-   
-  }
-]
+    title: "Women's Clothing",
+  },
+];
 
-
-const Categories = () =>{
+const Categories = () => {
   return (
-    <div id='features' className='text-center'>
-    <div className='container'>
-      <div className='col-md-10 col-md-offset-1 section-title'>
-        <h2>Categories</h2>
+    <div id="features" className="text-center">
+      <div className="container">
+        <div className="col-md-10 col-md-offset-1 section-title">
+          <h2>Categories</h2>
+        </div>
+
+        <div className="row">
+          {categroies.map((categroies) => (
+            <div key={categroies.title} className="col-xs-6 col-md-3">
+              <a href={categroies.pageLink}>
+                <img
+                  className="photo"
+                  src={categroies.image}
+                  alt={categroies.title}
+                />
+              </a>
+              <h4>{categroies.title}</h4>
+            </div>
+          ))}
+        </div>
       </div>
-          
-          <div className='row'>
-              {categroies.map((categroies) => (
-                  <div key={categroies.title} className='col-xs-6 col-md-3'>
-                      
-                      
-                      <a href = {categroies.pageLink}>
-                      <img className="photo"
-                        src={categroies.image}
-                        alt={categroies.title}
-                        
-                      />
-                      </a>
-                      <h4>{categroies.title}</h4>
-                      
-                  </div>
-                
-              ))}
-          </div>
-          </div>
-      </div>
+    </div>
   );
-}
+};
 
 export default Categories;
