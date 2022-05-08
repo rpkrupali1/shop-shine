@@ -153,7 +153,7 @@ function ShopList() {
         className="products-container"
         wrap="wrap"
       >
-        {products.map((product) => (
+        {filterProducts().map((product) => (
           <ShopItem
             id={product.id}
             title={product.title}
