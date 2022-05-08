@@ -130,7 +130,7 @@ function Cart() {
         </div>
         <Grid container direction="row" spacing={2}>
           {products.map((item) => (
-            <CartItem item={item} />
+            <CartItem key={item._id}item={item} />
           ))}
         </Grid>
         <Grid container direction="row" spacing={2} className="subtotal">
