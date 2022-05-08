@@ -111,6 +111,7 @@ function ShopList() {
   // console.log(state);
 
   useEffect(() => {
+    console.log(data);
     if (data) {
       dispatch({
         type: UPDATE_PRODUCTS,

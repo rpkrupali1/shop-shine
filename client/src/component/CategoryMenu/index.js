@@ -42,7 +42,6 @@ function CategoryMenu() {
       type: UPDATE_CURRENT_CATEGORY,
       currentCategory: id,
     });
-    console.log(state);
     window.location.assign("/shop");
   };
 
