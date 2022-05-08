@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ShopItem from "../ShopItem";
 import { Grid } from "@material-ui/core";
 import "../../assets/styles/product.css";
+import { useStoreContext } from "../../utils/GlobalState";
+import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCTS } from "../../utils/queries";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
+import { idbPromise } from "../../utils/helpers";
 
 const products = [
   {
@@ -100,6 +105,39 @@ const products = [
 ];
 
 function ShopList() {
+  const [state, dispatch] = useStoreContext();
+  const { currentCategory } = state;
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  // console.log(state);
+
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: UPDATE_PRODUCTS,
+        products: data.products,
+      });
+      data.products.forEach((product) => {
+        idbPromise("products", "put", product);
+      });
+    } else if (!loading) {
+      idbPromise("products", "get").then((products) => {
+        dispatch({
+          type: UPDATE_PRODUCTS,
+          products: products,
+        });
+      });
+    }
+  }, [data, loading, dispatch]);
+
+  function filterProducts() {
+    if (!currentCategory) {
+      return state.products;
+    }
+    return state.products.filter(
+      (product) => product.category._id === currentCategory
+    );
+  }
+
   return (
     <div className="shop-list cardshop">
       <div className="products-heading">

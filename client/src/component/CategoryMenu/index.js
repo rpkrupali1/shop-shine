@@ -6,7 +6,11 @@ import {
   UPDATE_CURRENT_CATEGORY,
 } from "../../utils/actions";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import { removeSpecialCharacters,capitalizeFirstLetter, idbPromise } from "../../utils/helpers";
+import {
+  removeSpecialCharacters,
+  capitalizeFirstLetter,
+  idbPromise,
+} from "../../utils/helpers";
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -33,17 +37,19 @@ function CategoryMenu() {
   }, [categoryData, loading, dispatch]);
 
   const handleClick = (id) => {
+    console.log(id);
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
       currentCategory: id,
     });
+    console.log(state);
+    window.location.assign("/shop");
   };
 
   const imagePath = (imageName) => {
     const image = removeSpecialCharacters(imageName);
-    console.log(image);
-    return require(`../../assets/images/${image}.jpg`)
-  }
+    return require(`../../assets/images/${image}.jpg`);
+  };
 
   return (
     <div id="features" className="text-center">
@@ -56,7 +62,14 @@ function CategoryMenu() {
           {categories.map((item) => (
             <div key={item.name} className="col-xs-6 col-md-3">
               <a href={item.pageLink}>
-                <img className="photo" src={imagePath(item.name)} alt={item.className} />
+                <img
+                  className="photo"
+                  src={imagePath(item.name)}
+                  alt={item.className}
+                  onClick={() => {
+                    handleClick(item._id);
+                  }}
+                />
               </a>
               <h4>{capitalizeFirstLetter(item.name)}</h4>
             </div>
