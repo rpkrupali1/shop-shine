@@ -3,7 +3,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
-import Shop from "./component/ShopList";
+// import Shop from "./component/ShopList";
+import Shop from "./pages/Shop"
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Footer from "./component/Footer";
@@ -40,7 +41,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -57,7 +58,7 @@ function App() {
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
               <Route exact path="/contact" element={<Contact />} />
-              <Route exact path="/products/1" element={<Detail />} />
+              <Route exact path="/products/:id" element={<Detail />} />
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/success" element={<Success />} />
               <Route exact path="/nomatch" element={<NoMatch />} />

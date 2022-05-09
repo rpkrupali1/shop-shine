@@ -1,19 +1,13 @@
-
-import ShopItem from "../ShopItem";
-import { Grid } from "@material-ui/core";
-import "../../assets/styles/product.css";
-import CategoryMenu from "../CategoryMenu";
-
 import React, { useEffect } from 'react';
-
+import ShopItem from '../ShopItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-
-
-
+import spinner from '../../assets/spinner.gif';
+import { Grid } from "@material-ui/core";
+import "../../assets/styles/product.css";
 
 function ShopList() {
   const [state, dispatch] = useStoreContext();
@@ -50,14 +44,12 @@ function ShopList() {
       (product) => product.category._id === currentCategory
     );
   }
+
   return (
-    <div className="shop-list cardshop">
-      <div className="products-heading">
-        <CategoryMenu />
-        
-        <p>There are many variations</p>
-      </div>
-      <Grid
+    <div className="my-2 shop-list cardshop products-heading">
+      <p>There are many variations</p>
+      {state.products.length ? (
+        <Grid
         container
         direction="row"
         // spacing={{ xs: 1, md: 2 }}
@@ -65,24 +57,21 @@ function ShopList() {
         className="products-container"
         wrap="wrap"
       >
-        {state.products.length ? (
-        <div className="flex-row">
           {filterProducts().map((product) => (
             <ShopItem
               key={product._id}
               _id={product._id}
               image={product.image}
-              name={product.name}
+              title={product.title}
               price={product.price}
-              quantity={product.quantity}
+              // quantity={product.quantity}
             />
           ))}
-        </div>
+         </Grid>
       ) : (
-        <h3></h3>
+        <h3>You haven't added any products yet!</h3>
       )}
-      {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
-      </Grid>
+      {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }
