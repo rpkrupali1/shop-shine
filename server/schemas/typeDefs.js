@@ -9,7 +9,7 @@ type Category {
 type Product {
     _id: ID
     title: String
-    price: Int
+    price: Float
     category: Category
     description: String
     image: String
