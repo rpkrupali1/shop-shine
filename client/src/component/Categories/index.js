@@ -2,12 +2,12 @@ import React from "react";
 
 const categroies = [
   {
-    image: require("../../assets/images/jewelery.jpg"),
+    image: require("../../assets/images/Jewelery.jpg"),
     pageLink: "/shop",
     title: "Jewelery",
   },
   {
-    image: require("../../assets/images/electronics.jpg"),
+    image: require("../../assets/images/Electronics.jpg"),
     pageLink: "/shop",
     title: "Electronics",
   },
