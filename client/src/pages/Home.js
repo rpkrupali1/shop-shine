@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//import Categories from "../component/CategoriesToBeDeleted";
 import Categories from "../component/Categories";
-import CategoryMenu from "../component/CategoryMenu";
 
 const Home = (props) => {
     return (
@@ -24,7 +24,7 @@ const Home = (props) => {
           </div>
         </div>
         {/* <Categories/> */}
-        <CategoryMenu />
+        <Categories />
       </header>
     )
   }
