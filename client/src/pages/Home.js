@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//import Categories from "../component/CategoriesToBeDeleted";
 import Categories from "../component/Categories";
 
 const Home = (props) => {
@@ -22,7 +23,8 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <Categories/>
+        {/* <Categories/> */}
+        <Categories />
       </header>
     )
   }

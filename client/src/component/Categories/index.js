@@ -1,63 +1,82 @@
-import React from "react"
+import React, { useEffect } from "react";
+import { useQuery } from "@apollo/client";
+import { useStoreContext } from "../../utils/GlobalState";
+import {
+  UPDATE_CATEGORIES,
+  UPDATE_CURRENT_CATEGORY,
+} from "../../utils/actions";
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import {
+  removeSpecialCharacters,
+  capitalizeFirstLetter,
+  idbPromise,
+} from "../../utils/helpers";
 
-const categroies = [
-  {
-    image: require('../../assets/images/Jewelery.jpg'),
-    pageLink: "/shop",
-    title: "Jewelery"
-   
-  },
-  {
-    image: require('../../assets/images/Electronics.png'),
-    pageLink: "/shop",
-    title: "Electronics"
-    
-  },
-  {
-    image: require('../../assets/images/mens.jpg'),
-    pageLink: "/shop",
-    title: "Men's Clothing"
-   
-  },
-  {
+function CategoryMenu() {
+  const [state, dispatch] = useStoreContext();
+  const { categories } = state;
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
-    image: require('../../assets/images/womens.jpg'),
-    pageLink: "/shop",
-    title: "Women's Clothing"
-   
-  }
-]
+  useEffect(() => {
+    if (categoryData) {
+      dispatch({
+        type: UPDATE_CATEGORIES,
+        categories: categoryData.categories,
+      });
+      categoryData.categories.forEach((category) => {
+        idbPromise("categories", "put", category);
+      });
+    } else if (!loading) {
+      idbPromise("categories", "get").then((categories) => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories,
+        });
+      });
+    }
+  }, [categoryData, loading, dispatch]);
 
+  const handleClick = (id) => {
+    console.log(id);
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: id,
+    });
+    window.location.assign("/shop");
+  };
 
-const Categories = () =>{
+  const imagePath = (imageName) => {
+    const image = removeSpecialCharacters(imageName);
+    return require(`../../assets/images/${image}.jpg`);
+  };
+
   return (
-    <div id='features' className='text-center'>
-    <div className='container'>
-      <div className='col-md-10 col-md-offset-1 section-title'>
-        <h2>Categories</h2>
+    <div id="features" className="text-center">
+      <div className="container">
+        <div className="col-md-10 col-md-offset-1 section-title">
+          <h2>Categories</h2>
+        </div>
+
+        <div className="row">
+          {categories.map((item) => (
+            <div key={item.name} className="col-xs-6 col-md-3">
+              <a href={item.pageLink}>
+                <img
+                  className="photo"
+                  src={imagePath(item.name)}
+                  alt={item.className}
+                  onClick={() => {
+                    handleClick(item._id);
+                  }}
+                />
+              </a>
+              <h4>{capitalizeFirstLetter(item.name)}</h4>
+            </div>
+          ))}
+        </div>
       </div>
-          
-          <div className='row'>
-              {categroies.map((categroies) => (
-                  <div key={categroies.title} className='col-xs-6 col-md-3'>
-                      
-                      
-                      <a href = {categroies.pageLink}>
-                      <img className="photo"
-                        src={categroies.image}
-                        alt={categroies.title}
-                        
-                      />
-                      </a>
-                      <h4>{categroies.title}</h4>
-                      
-                  </div>
-                
-              ))}
-          </div>
-          </div>
-      </div>
+    </div>
   );
 }
 
-export default Categories;
+export default CategoryMenu;
