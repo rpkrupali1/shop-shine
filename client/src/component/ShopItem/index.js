@@ -1,16 +1,24 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import "../../assets/styles/product.css";
+
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { Grid } from "@material-ui/core";
+import "../../assets/styles/product.css";
 
 function ShopItem(item) {
   const [state, dispatch] = useStoreContext();
 
-  const { _id, title, price, description, category, image } = item;
-  
+  const {
+    image,
+    title,
+    _id,
+    price,
+    description,
+    quantity
+  } = item;
+
   const { cart } = state
 
   const addToCart = () => {
@@ -33,22 +41,25 @@ function ShopItem(item) {
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   }
+
   return (
     <Grid item xs>
       <div className="product-card">
         <Link to={`/products/${_id}`}>
           <img
-            src={image}
+            alt={title}
+            src={`/images/${image}`}
             width={250}
             height={250}
-            className="product-image"
-            alt="product"
           />
           <p className="product-name">{title}</p>
           
         </Link>
-        <p className="product-price">${price}</p>
-        <button className="btn" onClick={addToCart}>Add to Cart</button>
+        <div>
+          {/* <div>{quantity} {pluralize("item", quantity)} in stock</div> */}
+          <span className="product-price">${price}</span>
+        </div>
+        <button className="btn" onClick={addToCart}>Add to cart</button>
       </div>
     </Grid>
   );

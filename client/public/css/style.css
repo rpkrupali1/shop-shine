@@ -225,7 +225,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/hero.jpg) center center no-repeat;
+  background: url(../images/hero.jpg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -444,7 +444,7 @@ label {
   display: absolute;
   width: 100%;
   padding: 10px;
-  background: url(../img/login-brand.jpg) center center no-repeat;
+  background: url(../images/login-brand.jpg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -456,7 +456,7 @@ label {
   width: 130%;
   height: 100%;
   padding: 10px;
-  background: url(../img/signup.jpg) center center no-repeat;
+  background: url(../images/signup.jpg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
