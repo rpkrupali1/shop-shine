@@ -8,8 +8,8 @@ export const QUERY_CHECKOUT = gql`
   }
 `;
 export const QUERY_PRODUCTS = gql`
-query Products {
-  products {
+  query getProducts($category: ID) {
+    products(category: $category) {
     _id
     title
     price
