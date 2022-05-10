@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoPersonCircleSharp } from "react-icons/io5";
 import { useStoreContext } from "../../utils/GlobalState";
 import "../../assets/styles/nav.css";
 
@@ -12,7 +13,7 @@ function Nav(props) {
   // useEffect(()=>{
   //   setTotalQuantity(calculateTotalQuantity());
   // })
-  
+
   function calculateTotalQuantity() {
     let sum = 0;
     state.cart.forEach((item) => {
@@ -77,6 +78,13 @@ function Nav(props) {
                       <span className="cart-item-qty">
                         {calculateTotalQuantity()}
                       </span>
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/profile">
+                    <button type="button" className="cart-icon">
+                      <IoPersonCircleSharp />
                     </button>
                   </Link>
                 </li>

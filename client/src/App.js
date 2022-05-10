@@ -3,8 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
-// import Shop from "./component/ShopList";
-import Shop from "./pages/Shop"
+import Shop from "./pages/Shop";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Footer from "./component/Footer";
@@ -14,6 +13,7 @@ import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
 import OrderHistory from "./pages/OrderHistory";
 import ForgotPassword from "./component/ForgotPassword";
+import Profile from "./pages/Profile";
 
 import "./App.css";
 
@@ -68,6 +68,7 @@ function App() {
                 path="/forgotpassword"
                 element={<ForgotPassword />}
               />
+              <Route exact path="/profile" element={<Profile />} />
             </Routes>
             <Footer />
           </StoreProvider>
