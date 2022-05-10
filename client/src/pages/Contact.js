@@ -11,7 +11,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 600,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -55,7 +55,7 @@ function Contact() {
           },
         });
         console.log(data);
-        //window.alert("well done");
+
         setOpen(true);
       } catch (err) {
         console.error(err);
@@ -223,11 +223,12 @@ function Contact() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h3" component="h2">
             Thank You!
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            We appreciate you contacting Shop-Shine. You will receive details at
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="h4" className="contact-modal-message">
+            We appreciate you contacting Shop-Shine! You will receive details shortly at{" "}
+            {formState.email}
           </Typography>
         </Box>
       </Modal>
