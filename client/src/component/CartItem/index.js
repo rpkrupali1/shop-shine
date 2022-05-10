@@ -63,8 +63,10 @@ function CartItem({ item }) {
 
       <Grid item xs={4}>
         <div>
-          <div>{item.title}</div>
-          <div>${item.price}</div>
+
+          <div>{item.name}</div>
+          <div>{item.price}</div>
+
         </div>
 
         <div className="quantity">

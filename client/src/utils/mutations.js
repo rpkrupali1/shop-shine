@@ -48,7 +48,7 @@ mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
       products {
         _id
-        title
+        name
       }
     }
   }
@@ -58,7 +58,7 @@ export const UPDATE_PRODUCT = gql`
 mutation updateProduct($_id: ID!, $quantity: Int!) {
     updateProduct(_id: $_id, quantity: $quantity) {
       _id
-      title
+      name
       price
       category {
         _id

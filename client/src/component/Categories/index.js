@@ -11,6 +11,8 @@ import {
   capitalizeFirstLetter,
   idbPromise,
 } from "../../utils/helpers";
+import { Link } from "react-router-dom";
+
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -42,7 +44,8 @@ function CategoryMenu() {
       type: UPDATE_CURRENT_CATEGORY,
       currentCategory: id,
     });
-    window.location.assign("/shop");
+    // window.location.assign("/shop");
+    console.log(id);
   };
 
   const imagePath = (imageName) => {
@@ -59,17 +62,21 @@ function CategoryMenu() {
 
         <div className="row">
           {categories.map((item) => (
-            <div key={item.name} className="col-xs-6 col-md-3">
-              <a href={item.pageLink}>
+            <div key={item.name} className="col-xs-6 col-md-3"
+
+              onClick={() => {
+                handleClick(item._id);
+              }}
+            >
+              {/* <a href={item.pageLink}> */}
+              <Link to="/shop">
                 <img
                   className="photo"
                   src={imagePath(item.name)}
                   alt={item.className}
-                  onClick={() => {
-                    handleClick(item._id);
-                  }}
                 />
-              </a>
+                </Link>
+              {/* </a> */}
               <h4>{capitalizeFirstLetter(item.name)}</h4>
             </div>
           ))}

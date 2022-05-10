@@ -61,7 +61,7 @@ function ShopList() {
               key={product._id}
               _id={product._id}
               image={product.image}
-              title={product.title}
+              name={product.name}
               price={product.price}
               // quantity={product.quantity}
             />

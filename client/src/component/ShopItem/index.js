@@ -12,7 +12,7 @@ function ShopItem(item) {
 
   const {
     image,
-    title,
+    name,
     _id,
     price,
     description,
@@ -47,12 +47,12 @@ function ShopItem(item) {
       <div className="product-card">
         <Link to={`/products/${_id}`}>
           <img
-            alt={title}
+            alt={name}
             src={`/images/${image}`}
             width={250}
             height={250}
           />
-          <p className="product-name">{title}</p>
+          <p className="product-name">{name}</p>
           
         </Link>
         <div>
