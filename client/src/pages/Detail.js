@@ -105,14 +105,14 @@ function Detail() {
           <Grid item xs={6} className="image-container">
           <img
             src={`/images/${currentProduct.image}`}
-            alt={currentProduct.title}
+            alt={currentProduct.name}
             className="product-detail-image"
           />
           </Grid>
 
          
           <Grid item xs={6} className="product-detail-desc">
-            <h1>{currentProduct.title}</h1>
+            <h1>{currentProduct.name}</h1>
             <div className="reviews">
               <div>
                 <AiFillStar />
