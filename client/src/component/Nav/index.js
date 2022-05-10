@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useStoreContext } from "../../utils/GlobalState";
+import "../../assets/styles/nav.css";
 
 function Nav(props) {
+  const [state] = useStoreContext();
+  // const [totaQuantity, setTotalQuantity] = useState();
+
+  // useEffect(()=>{
+  //   setTotalQuantity(calculateTotalQuantity());
+  // })
+  
+  function calculateTotalQuantity() {
+    let sum = 0;
+    state.cart.forEach((item) => {
+      sum += item.purchaseQuantity;
+    });
+    return sum;
+  }
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -49,9 +67,15 @@ function Nav(props) {
                 </li>
                 <li>
                   <Link to="/cart">
-                      <span role="img" aria-label="trash" className="cart-closed">
-                        🛒
+                    {/* <span role="img" aria-label="trash" className="cart-closed">
+                      🛒
+                    </span> */}
+                    <button type="button" className="cart-icon">
+                      <AiOutlineShoppingCart />
+                      <span className="cart-item-qty">
+                        {calculateTotalQuantity()}
                       </span>
+                    </button>
                   </Link>
                 </li>
               </ul>
@@ -103,9 +127,12 @@ function Nav(props) {
                 </li>
                 <li>
                   <Link to="/cart">
-                    <span role="img" aria-label="trash" className="cart-closed">
-                      🛒
-                    </span>
+                    <button type="button" className="cart-icon">
+                      <AiOutlineShoppingCart />
+                      <span className="cart-item-qty">
+                        {calculateTotalQuantity()}
+                      </span>
+                    </button>
                   </Link>
                 </li>
               </ul>

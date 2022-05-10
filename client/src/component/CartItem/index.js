@@ -1,7 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React, { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { TiDeleteOutline } from "react-icons/ti";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState";

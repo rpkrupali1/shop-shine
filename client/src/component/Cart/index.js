@@ -6,9 +6,9 @@ import { idbPromise } from "../../utils/helpers";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useStoreContext } from "../../utils/GlobalState";
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
+import { ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { Grid } from "@material-ui/core";
-import "../../assets/styles/cart.css"
+import "../../assets/styles/cart.css";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
@@ -35,9 +35,9 @@ const Cart = () => {
     }
   }, [state.cart.length, dispatch]);
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
+  // function toggleCart() {
+  //   dispatch({ type: TOGGLE_CART });
+  // }
 
   function calculateTotal() {
     let sum = 0;
@@ -64,15 +64,15 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </div>
-    );
-  }
+  // if (!state.cartOpen) {
+  //   return (
+  //     <div className="cart-closed" onClick={toggleCart}>
+  //       <span role="img" aria-label="trash">
+  //         🛒
+  //       </span>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="cart my-2">
@@ -84,22 +84,27 @@ const Cart = () => {
               <CartItem key={item._id} item={item} />
             ))}
           </Grid>
-          <Grid container direction="row" justifyContent="center" spacing={2} className="subtotal">
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            spacing={2}
+            className="subtotal"
+          >
             <Grid item className="subtotalItem">
               Subtotal:
               <span className="totalPrice"> ${calculateTotal()}</span>
             </Grid>
             <Grid item className="subtotalItem">
-            {Auth.loggedIn() ? (
-              <button className="btn" onClick={submitCheckout}>
-                Checkout
-              </button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+              {Auth.loggedIn() ? (
+                <button className="btn" onClick={submitCheckout}>
+                  Checkout
+                </button>
+              ) : (
+                <span>(log in to check out)</span>
+              )}
+            </Grid>
           </Grid>
-          </Grid>
-
         </div>
       ) : (
         <h3>

@@ -23,7 +23,6 @@ function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(formState);
     const contact = addContact({
       variables: {
         name: formState.name,
@@ -32,7 +31,6 @@ function Contact() {
       },
     });
     handleReset();
-    console.log(contact);
   }
 
 
