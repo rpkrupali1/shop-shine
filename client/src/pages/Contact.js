@@ -4,6 +4,19 @@ import { ADD_CONTACT } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 import { validateEmail } from "../utils/helpers";
 import "../assets/styles/contact.css";
+import { Box, Modal, Typography } from "@material-ui/core";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 function Contact() {
   const [formState, setFormState] = useState({
@@ -12,9 +25,14 @@ function Contact() {
     message: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(
+    "Name, email and message is required"
+  );
   const [addContact, { error, reset }] = useMutation(ADD_CONTACT);
-  //const [dbError, setDbError] = useState("");
+
+  // this ope is used for modal
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
 
   const handleReset = () => {
     Array.from(document.querySelectorAll("input")).forEach(
@@ -23,22 +41,25 @@ function Contact() {
     Array.from(document.querySelectorAll("textarea")).forEach(
       (textarea) => (textarea.value = "")
     );
-    // this.setState({
-    //   itemvalues: [{}]
-    // });
   };
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    //console.log("handl1" + error.message);
     if (!errorMessage) {
-      addContact({
-        variables: {
-          name: formState.name,
-          email: formState.email,
-          message: formState.message,
-        },
-      });
+      try {
+        const { data } = await addContact({
+          variables: {
+            name: formState.name,
+            email: formState.email,
+            message: formState.message,
+          },
+        });
+        console.log(data);
+        //window.alert("well done");
+        setOpen(true);
+      } catch (err) {
+        console.error(err);
+      }
     }
     handleReset();
   }
@@ -60,9 +81,9 @@ function Contact() {
         setErrorMessage("");
       }
     }
+
     if (!errorMessage) {
       setFormState({ ...formState, [e.target.name]: e.target.value });
-      //setDbError("");
     }
   };
 
@@ -194,6 +215,22 @@ function Contact() {
           </div>
         </div>
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Thank You!
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            We appreciate you contacting Shop-Shine. You will receive details at
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 }
