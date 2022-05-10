@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { useLazyQuery } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import React, { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_CHECKOUT } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+import CartItem from "../CartItem";
+import Auth from "../../utils/auth";
+import { useStoreContext } from "../../utils/GlobalState";
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { Grid } from "@material-ui/core";
+import "../../assets/styles/cart.css"
 
-
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -26,7 +26,7 @@ const Cart = () => {
 
   useEffect(() => {
     async function getCart() {
-      const cart = await idbPromise('cart', 'get');
+      const cart = await idbPromise("cart", "get");
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -44,6 +44,9 @@ const Cart = () => {
     state.cart.forEach((item) => {
       sum += item.price * item.purchaseQuantity;
     });
+    if (sum >= 100) {
+      sum = sum - (sum / 100) * 10;
+    }
     return sum.toFixed(2);
   }
 
@@ -81,16 +84,22 @@ const Cart = () => {
               <CartItem key={item._id} item={item} />
             ))}
           </Grid>
-          <Grid container direction="row" spacing={2} className="subtotal">
-          <Grid item>Subtotal: ${calculateTotal()}</Grid>
-          </Grid>
-          <div>
+          <Grid container direction="row" justifyContent="center" spacing={2} className="subtotal">
+            <Grid item className="subtotalItem">
+              Subtotal:
+              <span className="totalPrice"> ${calculateTotal()}</span>
+            </Grid>
+            <Grid item className="subtotalItem">
             {Auth.loggedIn() ? (
-              <button className="btn" onClick={submitCheckout}>Checkout</button>
+              <button className="btn" onClick={submitCheckout}>
+                Checkout
+              </button>
             ) : (
               <span>(log in to check out)</span>
             )}
-          </div>
+          </Grid>
+          </Grid>
+
         </div>
       ) : (
         <h3>
