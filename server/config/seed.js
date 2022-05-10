@@ -15,7 +15,7 @@ db.once("open", async () => {
 
   const products = await Product.insertMany([
     {
-      title:
+      name:
         "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
       description:
@@ -28,7 +28,7 @@ db.once("open", async () => {
       },
     },
     {
-      title: "Mens Casual Slim Fit",
+      name: "Mens Casual Slim Fit",
       price: 15.99,
       description:
         "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
@@ -40,7 +40,7 @@ db.once("open", async () => {
       },
     },
     {
-      title: "Mens Cotton Jacket",
+      name: "Mens Cotton Jacket",
       price: 55.99,
       description:
         "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
@@ -52,7 +52,7 @@ db.once("open", async () => {
       },
     },
     {
-      title: "Mens Casual Slim Fit",
+      name: "Mens Casual Slim Fit",
       price: 15.99,
       description:
         "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
@@ -64,7 +64,7 @@ db.once("open", async () => {
       },
     },
     {
-      title:
+      name:
         "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
       description:
@@ -77,7 +77,7 @@ db.once("open", async () => {
       },
     },
     {
-      title: "Solid Gold Petite Micropave ",
+      name: "Solid Gold Petite Micropave ",
       price: 168,
       description:
         "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
@@ -89,7 +89,7 @@ db.once("open", async () => {
       },
     },
     {
-      title: "White Gold Plated Princess",
+      name: "White Gold Plated Princess",
       price: 9.99,
       description:
         "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",

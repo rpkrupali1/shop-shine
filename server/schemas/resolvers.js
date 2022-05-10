@@ -61,9 +61,9 @@ const resolvers = {
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
-          title: products[i].title,
+          name: products[i].name,
           description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+          // images: [`${url}/images/${products[i].image}`]
         });
 
         const price = await stripe.prices.create({
