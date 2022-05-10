@@ -42,6 +42,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       description
       category {
         name
+        _id
       }
     }
   }
