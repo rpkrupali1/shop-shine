@@ -3,7 +3,6 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./component/Nav";
-// import Shop from "./component/ShopList";
 import Shop from "./pages/Shop"
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -14,7 +13,6 @@ import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
 import OrderHistory from "./pages/OrderHistory";
 import ForgotPassword from "./component/ForgotPassword";
-
 import "./App.css";
 
 import {
