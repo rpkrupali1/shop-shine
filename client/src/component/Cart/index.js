@@ -86,15 +86,22 @@ const Cart = () => {
           </Grid>
           <Grid
             container
-            direction="row"
+            direction="column"
             justifyContent="center"
+            alignItems="center"
             spacing={2}
             className="subtotal"
           >
+            {calculateTotal() >= 100 && (
+              <Grid item>
+                Congratulations! You have received 10% discount.
+              </Grid>
+            ) }
             <Grid item className="subtotalItem">
               Subtotal:
               <span className="totalPrice"> ${calculateTotal()}</span>
             </Grid>
+
             <Grid item className="subtotalItem">
               {Auth.loggedIn() ? (
                 <button className="btn" onClick={submitCheckout}>
