@@ -186,7 +186,7 @@ function Contact() {
                 <span>
                   <i className="fa fa-envelope-o"></i> Email
                 </span>{" "}
-                shop-shine@shine.com
+                shopshine4life@gmail.com
               </p>
             </div>
           </div>
@@ -195,17 +195,17 @@ function Contact() {
               <div className="social">
                 <ul>
                   <li>
-                    <a href={"https://www.facebook.com/"}>
+                    <a href={"https://www.facebook.com/profile.php?id=100081144580549"} target='_blank'>
                       <i className="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={"https://twitter.com/"}>
+                    <a href={"https://twitter.com/shopshine4life"} target='_blank'>
                       <i className="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href={"https://www.youtube.com/"}>
+                    <a href={"https://www.youtube.com/channel/UC7sqcKYYu6cpQOUMuOx831g"} target='_blank'>
                       <i className="fa fa-youtube"></i>
                     </a>
                   </li>
