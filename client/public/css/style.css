@@ -350,11 +350,12 @@ label {
   background: #f6f6f6;
   padding: 30px 0;
   padding: 20px;
-  /* position: fixed;
+  /* z-index: 9999; */
+  position: fixed;
   left: 0;
   bottom: 0;
   height: 60px;
-  width: 100%; */
+  width: 100%; 
 }
 #footer p {
   color: #888;
