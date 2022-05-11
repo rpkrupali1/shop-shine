@@ -17,7 +17,16 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vscode
+.npm
+.DS_Store
+.eslistcache
+
+
+dist
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+

@@ -1,0 +1,18 @@
+.nomatch {
+  width: 1000px;
+  margin: auto;
+  margin-top: 160px;
+  background-color: #dcdcdc;
+  padding: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.nomatch h1 {
+    margin-left: 5px;
+    color: #f02d34;
+  }

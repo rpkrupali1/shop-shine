@@ -14,7 +14,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "concurrently": "^5.1.0"
+        "concurrently": "^5.1.0",
+        "webpack-pwa-manifest": "^4.3.0"
     },
     "dependencies": {
         "bootstrap": "^5.1.3"
