@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import Jumbotron from '../component/Jumbotron';
+// import Jumbotron from '../component/Jumbotron';
 import { ADD_ORDER } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
 import { BsBagCheckFill } from "react-icons/bs";
@@ -23,9 +23,9 @@ function Success() {
         });
       }
 
-      setTimeout(() => {
-        window.location.assign('/');
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.assign('/');
+      // }, 3000);
     }
 
     saveOrder();
@@ -33,7 +33,7 @@ function Success() {
 
   return (
     <div className="success-wrapper">
-      <Jumbotron>
+      {/* <Jumbotron> */}
       <div className="success">
         <p className="icon">
           <BsBagCheckFill />
@@ -52,7 +52,7 @@ function Success() {
           </button>
         </a>
       </div>
-      </Jumbotron>
+      {/* </Jumbotron> */}
     </div>
   );
 }
