@@ -10,7 +10,9 @@ import { ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { Grid } from "@material-ui/core";
 import "../../assets/styles/cart.css";
 
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+require('dotenv').config();
+
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
