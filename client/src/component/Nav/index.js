@@ -20,6 +20,27 @@ function Nav(props) {
     });
     return sum;
   }
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
 
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -27,57 +48,50 @@ function Nav(props) {
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <button
-                type="button"
-                className="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1"
-              >
-                {" "}
-                <span className="sr-only">Toggle Nav</span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
-              </button>
-              <a className="navbar-brand page-scroll" href="#page-top">
+              
+              <a className="navbar-brand page-scroll" href="/">
                 Shop Shine
               </a>{" "}
             </div>
+            <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+         <div className={click ? 'nav-menu active' : 'nav-menu'}>
+              <ul className=" navbar-nav navbar-right ">
+                <li>
+                <Link to='/'  onClick={closeMobileMenu}>
+                    Home
+                  <i className='fab fa-firstdraft' /></Link>
+                  
+                </li>
+                <li >
+                  <a onClick={closeMobileMenu} href="/shop">Shop</a>
+                </li>
 
-            <div
-              className="collapse navbar-collapse"
-              id="bs-example-navbar-collapse-1"
-            >
-              <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link onClick={closeMobileMenu} to="/contact">Contact</Link>
                 </li>
                 <li>
-                  <a href="/shop">Shop</a>
+                  <Link onClick={closeMobileMenu} to="/orderHistory">Order History</Link>
                 </li>
-
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-                <li>
-                  <Link to="/orderHistory">Order History</Link>
-                </li>
-                <li>
+                <li >
+                  <div onClick={closeMobileMenu}>
                   <a href="/" onClick={() => Auth.logout()}>
                     Logout
                   </a>
+                  </div>
                 </li>
                 <li>
-                  <Link to="/cart">
+                  <Link className="cart-icon" onClick={closeMobileMenu} to="/cart">
                     {/* <span role="img" aria-label="trash" className="cart-closed">
                       🛒
                     </span> */}
-                    <button type="button" className="cart-icon">
+                    
                       <AiOutlineShoppingCart />
                       <span className="cart-item-qty">
                         {calculateTotalQuantity()}
                       </span>
-                    </button>
+                    
                   </Link>
                 </li>
               </ul>
@@ -87,54 +101,50 @@ function Nav(props) {
       );
     } else {
       return (
-        <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+        <nav id="menu" className="navbar navbar-default navbar-fixed-top ">
           <div className="container">
             <div className="navbar-header">
-              <button
-                type="button"
-                className="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1"
-              >
-                {" "}
-                <span className="sr-only">Toggle Nav</span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
-                <span className="icon-bar"></span>{" "}
-              </button>
-              <a className="navbar-brand page-scroll" href="#page-top">
+              
+              <a className="navbar-brand page-scroll" href="/">
                 Shop Shine
               </a>{" "}
             </div>
+            <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+         <div className={click ? 'nav-menu active' : 'nav-menu'}>
+              <ul className=" navbar-nav navbar-right ">
+                <li>
+                <Link to='/'  onClick={closeMobileMenu}>
+                    Home
+                  <i className='fab fa-firstdraft' /></Link>
+                  
+                </li>
+                <li >
+                  <a onClick={closeMobileMenu} href="/shop">Shop</a>
+                </li>
 
-            <div
-              className="collapse navbar-collapse"
-              id="bs-example-navbar-collapse-1"
-            >
-              <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link onClick={closeMobileMenu} to="/contact">Contact</Link>
                 </li>
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link onClick={closeMobileMenu} to="/signup">Sign Up</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link onClick={closeMobileMenu} to="/login">Login</Link>
                 </li>
+                
                 <li>
-                  <Link to="/signup">Signup</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/cart">
-                    <button type="button" className="cart-icon">
+                  <Link className="cart-icon" onClick={closeMobileMenu} to="/cart">
+                    {/* <span role="img" aria-label="trash" className="cart-closed">
+                      🛒
+                    </span> */}
+                    
                       <AiOutlineShoppingCart />
                       <span className="cart-item-qty">
                         {calculateTotalQuantity()}
                       </span>
-                    </button>
+                    
                   </Link>
                 </li>
               </ul>
