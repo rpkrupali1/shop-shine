@@ -69,22 +69,6 @@
   background-color: #608dfd;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .navbar {
     background: white;
     height: 80px;
@@ -246,6 +230,9 @@
   .cart-icon:hover {
     transform: scale(1.1, 1.1);
   }
+  li:hover{
+    transform: scale(1.1, 1.1);
+  }
   .cart-item-qty {
     position: absolute;
     right: -8px;
@@ -258,4 +245,3 @@
     text-align: center;
     font-weight: 600;
   }
-  
