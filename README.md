@@ -5,12 +5,14 @@
 ## Table of contents
 1. [Title](#title)
 2. [Description](#description)
+3. [Technologies](#technologies-used-on-this-project)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Contributing](#contributing)
 6. [Test](#test)
 7. [License](#license)
 8. [Questions](#questions)
+9. [Deployed Application](#deployed-application)
 
 ## Title
 SHOP-SHINE
@@ -45,8 +47,24 @@ Find us on Github <br />
 [kazichaska](https://github.com/kazichaska) <br />
 
 
-## Deployed Application Video Link 
+## Deployed Application
 https://serene-sea-72116.herokuapp.com/ 
+
+Please find below details of application:
+
+When user lands on home page, user sees an option to shop or shop by category
+
+![application](./client/src/assets/images/readme/application.png)
+
+When users clicks on shop from without filtering, user can see all products
+
+![shop](./client/src/assets/images/readme/Shop.PNG)
+
+User can filter products by category
+
+![filterByCategory](./client/src/assets/images/readme/FilterByCategory.PNG)
+
+When user add items to cart, shopping cart on header will show product quantity 
 
 ## Screenshots of the code and application
 ![application](./client/src/assets/images/readme/application.png)
