@@ -1,4 +1,7 @@
 import decode from 'jwt-decode';
+import { idbPromise } from './helpers';
+import { USER } from './queries';
+import { useQuery } from '@apollo/client';
 
 class AuthService {
   getProfile() {
@@ -30,7 +33,6 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-
     window.location.assign('/');
   }
 

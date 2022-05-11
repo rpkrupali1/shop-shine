@@ -10,27 +10,27 @@ export const QUERY_CHECKOUT = gql`
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
     products(category: $category) {
-    _id
-    name
-    price
-    description
-    image
-    quantity
-    category {
+      _id
+      name
+      price
+      description
+      image
+      quantity
+      category {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
+  {
+    categories {
       _id
       name
     }
   }
-}
-`;
-
-export const QUERY_CATEGORIES = gql`
-{
-  categories {
-    _id
-    name
-  }
-}
 `;
 
 export const QUERY_ALL_PRODUCTS = gql`
@@ -53,6 +53,7 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
+      email
       orders {
         _id
         purchaseDate
@@ -68,31 +69,29 @@ export const QUERY_USER = gql`
   }
 `;
 
-
-
-export const USER = gql `
-query User {
-  user {
-    _id
-    firstName
-    lastName
-    email
-    orders {
+export const USER = gql`
+  query User {
+    user {
       _id
-    purchaseDate
-    products {
-      _id
-      name
-      price
-      category {
+      firstName
+      lastName
+      email
+      orders {
         _id
-        name
+        purchaseDate
+        products {
+          _id
+          name
+          price
+          category {
+            _id
+            name
+          }
+          description
+          image
+          quantity
+        }
       }
-      description
-      image
-      quantity
     }
   }
-}
-}
 `;
