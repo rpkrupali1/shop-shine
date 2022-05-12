@@ -1,6 +1,6 @@
 /* Navigation */
 #menu {
-  padding: 15px;
+  padding: 5px;
   transition: all 0.8s;
 }
 #menu.navbar-default {
@@ -23,7 +23,7 @@
   font-weight: 400;
   padding: 8px 2px;
   border-radius: 0;
-  margin: 9px 20px 0;
+  margin: 2px 40px 0;
 }
 #menu.navbar-default .navbar-nav > li > a:after {
   display: block;
@@ -86,22 +86,22 @@
     text-decoration: none;
     font-size: 2rem;
   }
+
+  
   
   .fa-firstdraft {
     margin-left: 0.5rem;
     font-size: 1.6rem;
   }
+  .nav-cat{
+    padding: 30px, 30px;
+  }
   
   .nav-menu {
-
-  
-
-
 
     width: 80vw;
     margin: 10px;
 
- 
   }
   
   .nav-item {
@@ -114,6 +114,11 @@
     color: blackx ;
     text-decoration: none;
     padding: 0.5rem 1rem;
+  }
+  .nav-links2 {
+    color: blackx ;
+    text-decoration: none;
+    padding: 0.5rem 4rem;
   }
   
   .nav-links:hover {
@@ -133,8 +138,9 @@
   .menu-icon {
     display: none;
   }
+
   
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1237px) {
     .NavbarItems {
       position: relative;
     }
@@ -212,9 +218,7 @@
       transition: 250ms;
     }
   
-    button {
-      display: none;
-    }
+    
   }
 
 

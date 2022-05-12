@@ -57,7 +57,7 @@ function Nav(props) {
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
          <div className={click ? 'nav-menu active' : 'nav-menu'}>
-              <ul className=" navbar-nav navbar-right ">
+              <ul className=" navbar-nav navbar-right size">
                 <li>
                 <Link to='/'  onClick={closeMobileMenu}>
                     Home
@@ -75,10 +75,11 @@ function Nav(props) {
                   <Link onClick={closeMobileMenu} to="/orderHistory">Order History</Link>
                 </li>
                 <li >
-                  <div onClick={closeMobileMenu}>
+                  <div className="nav-links2" onClick={closeMobileMenu}>
                   <a href="/" onClick={() => Auth.logout()}>
                     Logout
                   </a>
+                  
                   </div>
                 </li>
                 <li>
